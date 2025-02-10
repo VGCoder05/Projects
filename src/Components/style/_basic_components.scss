@@ -1,0 +1,269 @@
+@import "../style/Color_pallet";
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+// Sections ->  padding: $spacing-xl 0;
+// Cards ->  padding: $spacing-lg;
+// Button Padding ->  padding: $spacing-sm $spacing-md;
+// Gap Between Elements ->  gap: $spacing-md;
+
+// ----------------------------------------------------------------
+
+// Typography
+
+// Typography Fonts
+$Primary-font: 'Poppins', sans-serif;
+$Secondary-font: 'Inter', sans-serif;
+$Monospace-font: 'Fira Code', monospace;
+// Primary-font -> Headings & CTA Buttons font
+// Secondary-font -> Body Text & Paragraphs font
+// Monospace-font -> For small txt
+
+// Typography Scale
+$font-h1: 48px;
+$font-h2: 36px;
+$font-h3: 28px;
+$font-body: 18px;
+$font-small: 16px;
+
+// Font Weights
+$font-bold: 700;
+$font-semi-bold: 600;
+$font-medium: 500;
+$font-regular: 400;
+
+// Line Heights
+$line-height-h1: 1.2;
+$line-height-h2: 1.3;
+$line-height-h3: 1.4;
+$line-height-h4: 1.5;
+$line-height-body: 1.7;
+
+// Letter Spacing
+$letter-spacing-h1: -0.5px;
+$letter-spacing-h2: -0.3px;
+$letter-spacing-h3: -0.2px;
+$letter-spacing-default: 0px;
+
+// Apply Typography Styles
+h1 {
+    font-size: $font-h1;
+    font-weight: $font-bold;
+    line-height: $line-height-h1;
+    letter-spacing: $letter-spacing-h1;
+    font-family: $Primary-font;
+}
+
+h2 {
+    font-size: $font-h2;
+    font-weight: $font-bold;
+    line-height: $line-height-h2;
+    letter-spacing: $letter-spacing-h2;
+    font-family: $Primary-font;
+}
+
+h3 {
+    font-size: $font-h3;
+    font-weight: $font-semi-bold;
+    line-height: $line-height-h3;
+    letter-spacing: $letter-spacing-h3;
+    font-family: $Primary-font;
+}
+
+p {
+    font-size: $font-body;
+    font-weight: $font-regular;
+    line-height: $line-height-body;
+    letter-spacing: $letter-spacing-default;
+    font-family: $Secondary-font;
+}
+
+// ----------------------------------------------------------------
+
+// Link
+// Link style with padding as width
+@mixin Link($p) {
+    position: relative;
+    padding-bottom: $p;
+
+    text-decoration: none;
+    color: $text-color;
+    font-size: $font-body;
+    font-weight: $font-regular;
+    line-height: $line-height-body;
+    letter-spacing: $letter-spacing-default;
+}
+
+%underline-animation {
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+
+        width: 0;
+        height: 2px;
+        background: red;
+        transition: width .3s ease-in-out;
+    }
+
+    &:hover::before {
+        width: 80%;
+    }
+}
+
+// ----------------------------------------------------------------
+
+// List
+ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+// ----------------------------------------------------------------
+
+// Buttons
+$btn-p: 1rem;
+
+%btn {
+    position: relative;
+    padding: $btn-p calc($btn-p * 2);
+
+
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    gap: 10px;
+
+    transition: all 0.3s ease-in-out;
+
+    @media (max-width: 426px) {
+        $btn-p: .5rem;
+    }
+
+    &:active {
+        transform: scale(0.96);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+%btn-with-ripple {
+    @extend %btn;
+
+    // Ripple Effect
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, transparent 70%);
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s ease-out;
+        opacity: 0.5;
+    }
+
+    &:hover::before {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+// Primary Button
+.btn-primary {
+    @extend %btn-with-ripple;
+
+
+    background: linear-gradient(135deg, #f40464, #ff6f91);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(244, 4, 100, 0.3);
+    transition: all 1s ease-in-out !important;
+
+    &:hover {
+        background: linear-gradient(135deg, #f40464, #ff6f91);
+        box-shadow: 0 8px 20px rgba(255, 111, 145, 0.4);
+        transition: all 1s ease-in-out !important;
+    }
+}
+
+
+// Secondary Button
+.btn-secondary {
+    @extend %btn;
+
+    background: linear-gradient(135deg, #ff6f91, #f40464);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255, 111, 145, 0.3);
+    transition: background 10s ease-in-out !important;
+
+    &:hover {
+        background: linear-gradient(135deg, #f40464, #ff6f91);
+        color: rgb(244, 4, 100);
+        box-shadow: 0 8px 20px rgba(244, 4, 100, 0.4);
+        transition: background 10s ease-in-out !important;
+    }
+}
+
+
+// Add To Cart btn
+.add-to-cart-btn {
+
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    background: $add-to-cart-btn;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+
+    &:hover {
+        background: darken($Descounted-price-color, 10%);
+    }
+}
+
+
+// Show More btn
+.show-more-btn {
+    margin: 2rem auto;
+    padding: 0.8rem 2rem;
+    width: fit-content;
+
+    background: $Show-more-btn;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    // To Center the btn
+    display: block;
+    text-align: center;
+
+    cursor: pointer;
+    transition: background 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+        background: darken($Show-more-btn, 10%);
+    }
+}
+
+// ----------------------------------------------------------------

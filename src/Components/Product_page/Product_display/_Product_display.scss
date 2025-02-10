@@ -1,0 +1,29 @@
+$img-w: 2.5rem;
+
+.product_display {
+    display: flex;
+    gap: .25rem;
+
+    .all_product_img {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .products {
+            width: $img-w;
+            height: $img-w;
+            // box-shadow: 2px 2px ;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .product_img_display {
+        .product {
+            width: calc(calc($img-w + 0.25rem) * 5);
+            height: calc(calc($img-w * 5) + calc(0.25rem * 4));
+        }
+    }
+}

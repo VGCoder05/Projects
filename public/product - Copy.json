@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Smartwatch Pro",
+    "category": "Wearables",
+    "price": 199.99,
+    "options": {
+      "sizes": ["Small", "Medium", "Large"],
+      "colors": ["Black", "Silver", "Gold"]
+    },
+    "fixed_detail": {
+      "brand": "TechGear",
+      "warranty": "1 Year",
+      "return policy": "30 Days"
+    }
+  }
+  ,
+  {
+    "id": 2,
+    "name": "Gaming Headset X",
+    "category": "Audio Devices",
+    "price": 89.99,
+    "options": {
+      "colors": ["Red", "Blue", "Black"]
+    },
+    "fixed_detail": {
+      "brand": "SoundMax",
+      "warranty": "2 Years",
+      "return policy": "15 Days"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Laptop X500",
+    "category": "Laptops & Computers",
+    "price": 1299.99,
+    "options": {
+      "storage": ["256GB SSD", "512GB SSD", "1TB SSD"],
+      "ram": ["8GB", "16GB", "32GB"]
+    },
+    "fixed_detail": {
+      "brand": "UltraTech",
+      "warranty": "3 Years",
+      "return policy": "7 Days"
+    }
+  }
+]

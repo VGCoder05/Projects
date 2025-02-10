@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+// Mixin for Glassmorphism
+@mixin glassmorphism {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.options {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+// Base Styles
+.option {
+    padding: 20px;
+    
+    font-family: 'Poppins', sans-serif;
+    background: $section-bg-2;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .chooice {
+        margin-top: 1rem;
+
+        .heading {
+            margin-bottom: 10px;
+
+            font-size: 18px;
+            font-weight: 600;
+            color: $Primary;
+            text-align: start;
+            text-transform: capitalize;
+
+            span {
+                font-size: 14px;
+                font-weight: 400;
+                color: $text-color;
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .chooices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        button {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            color: $text-color;
+            background: $Neutral-Gray;
+            @include glassmorphism;
+
+            &:hover {
+                background: $Primary;
+                color: #fff;
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+
+// Responsive Styles
+@media (max-width: 768px) {
+    .option {
+        padding: 15px;
+    }
+
+    .chooices {
+        justify-content: center;
+    }
+
+    .heading {
+        text-align: center;
+    }
+}
+
+
+
+
+// Fixed Detail Styling
+.fixed_detail {
+    padding: 20px;
+
+    font-family: 'Poppins', sans-serif;
+    background: $section-bg-2;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .detail {
+        display: flex;
+        gap: 12px;
+
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: $Primary;
+            text-transform: capitalize;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            color: $text-color;
+            border-radius: 8px;
+        }
+    }
+}
+
+// Responsive Styles
+@media (max-width: 768px) {
+    .fixed_detail {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+}

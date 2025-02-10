@@ -1,0 +1,54 @@
+// Color Palette
+$Primary: #f40464;
+$Secondary: #ff6f91;
+$text-color: #333; // Default text color
+$Body-bg: #f9f9f9;
+$Neutral-Gray: #b0b0b0;
+$toggle-btn-bg: #121212;
+$toggle-btn-text-color: #f9f9f9;
+$Show-more-btn: #007bff; // Section highlight
+$Descounted-price-color: #28a745; // Secondary color for buttons or accents
+$add-to-cart-btn: #28a745; // Discount badges and Add to Cart
+$section-bg-1: #ffc0cb;
+$section-bg-2: #f9f9f9;
+// Primary -> (Main brand color)
+// Secondary -> (Lighter variant for accents)
+// Text -> (For text, navbar, and footer backgrounds)
+// Body-bg -> (For backgrounds and contrast)
+// Neutral Gray -> (For subtle text and dividers)
+
+
+// Shadows
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Global shadow
+$shadow-medium: 0px 6px 12px rgba(0, 0, 0, 0.15);
+$shadow-dark: 0px 8px 16px rgba(0, 0, 0, 0.2);
+// $shadow-light -> small elements like buttons.
+// $shadow-medium -> cards.
+// $shadow-dark -> pop-ups and modals.
+
+
+// For Sections
+$font-bold: 700;
+$font-medium: 500;
+$border-radius: 8px;
+
+
+// Body in ligth theme
+body {
+    background: $Body-bg;
+    color: $text-color;
+
+    &::-webkit-scrollbar {
+            width: 1rem;
+    
+            @media (min-width: 1440px) {
+                width: 2rem;
+    
+            }
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 1rem;
+        }
+}

@@ -1,0 +1,108 @@
+// Base styles
+.banner-section {
+
+    .slide {
+        height: 20rem;
+        
+        @media (max-width: 426px) {
+            height: 15rem;
+        }
+
+        .banner {
+            position: relative;
+            height: 100%;
+
+            // Overlay Style
+            // background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--img-url);
+            // background-size: cover;
+            // background-position: center;
+
+            color: #fff;
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .overlay {
+                position: absolute;
+                inset: 0;
+
+                padding: 2rem 0;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+
+
+                h2 {
+                    margin-bottom: 1rem;
+
+                    // Default font size for large devices
+                    font-size: 2.5rem;
+                    font-weight: bold;
+
+                    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+
+                    @media (max-width: 426px) {
+                        font-size: 1.5rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// Breakpoints
+@media (max-width: 576px) {
+
+    // Small devices (mobile)
+    .hero-section .carousel .slide .overlay {
+        h2 {
+            font-size: 1rem; // Smaller font size for mobiles
+        }
+
+        .btn-primary {
+            padding: 5px 10px;
+            font-size: 0.875rem; // Smaller button size for mobiles
+        }
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+
+    // Medium devices (tablets)
+    .hero-section .carousel .slide .overlay {
+        h2 {
+            font-size: 1.75rem; // Slightly smaller font size for tablets
+        }
+
+        .btn-primary {
+            padding: 9px 18px;
+            font-size: 0.9375rem; // Slightly smaller button size for tablets
+        }
+    }
+}
+
+@media (min-width: 769px) {
+
+    // Large devices (desktop)
+    .hero-section .carousel .slide .overlay {
+        h2 {
+            font-size: 4.5rem; 
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 1rem; 
+        }
+    }
+}

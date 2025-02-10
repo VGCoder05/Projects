@@ -1,0 +1,110 @@
+.product_detail_display {
+
+    .main_detail {
+        padding: 1.5rem;
+        background: $Body-bg;
+        border-radius: 8px;
+        font-family: $Secondary-font;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+        .product_name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: $text-color;
+        }
+
+        small {
+            color: $Neutral-Gray;
+            font-size: 1rem;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+            font-weight: bold;
+            color: #ffbf00; // Gold star color
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+
+            .discounted_price {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: $Primary;
+            }
+
+            .original_price {
+                color: $Neutral-Gray;
+                font-size: ceil(calc($font-body / 1.5));
+                text-decoration: line-through;
+            }
+
+            .discounted_percentage {
+                color: $Descounted-price-color;
+                font-weight: bold;
+            }
+        }
+
+        .quantity-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+
+            p {
+                font-size: 1rem;
+                font-weight: bold;
+                color: $text-color;
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: #fff;
+                border-radius: 8px;
+                padding: 0.5rem;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+                button {
+                    background: $Primary;
+                    color: white;
+                    border: none;
+                    font-size: 1.2rem;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        background: $Secondary;
+                    }
+
+                    &:disabled {
+                        background: $Neutral-Gray;
+                        cursor: not-allowed;
+                    }
+                }
+
+                .quantity {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    min-width: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+}
+
+// .main_detail {

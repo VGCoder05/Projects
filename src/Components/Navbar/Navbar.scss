@@ -1,0 +1,105 @@
+@import "../style/basic_components";
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    // Glassmorphism style
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    padding: 1rem;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 99;
+
+    .logo {
+
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: cover;
+        }
+    }
+
+    .links {
+        width: 100%;
+
+        a {
+            // Link style with padding as width
+            @include Link(0);
+            @extend %underline-animation;
+            font-family: $Monospace-font;
+        }
+    }
+
+    .light-dark-btn {
+        $toggle-w: 80px;
+        $toggle-h: 40px;
+        $toggle-p: 1rem;
+        $toggle-circle-p: 2;
+
+        .toggle-btn {
+            position: relative;
+            padding: $toggle-p;
+            width: $toggle-w;
+            height: $toggle-h;
+
+            color: $toggle-btn-text-color;
+            background: $toggle-btn-bg;
+            border-radius: 25px;
+            cursor: pointer;
+
+            transition: all 1s ease-in-out;
+
+            @media (max-width: 740px) {
+                height: calc($toggle-h / 2);
+                // transition: all 0.3s ease-in-out;
+            }
+
+            .value {
+                position: absolute;
+                inset: 0 $toggle-p;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .circle {
+                position: absolute;
+                top: 50%;
+                left: calc(($toggle-p / calc($toggle-circle-p * 2)));
+                transform: translateY(-50%);
+
+                width: calc($toggle-h - calc($toggle-p / $toggle-circle-p));
+                height: calc($toggle-h - calc($toggle-p / $toggle-circle-p));
+
+                background: $toggle-btn-text-color;
+                border-radius: 50%;
+                transition: all 0.3s ease-in-out;
+
+                @media (max-width: 740px) {
+                    width: calc(calc(calc($toggle-h / 1.2) - calc($toggle-p / $toggle-circle-p)));
+                    height: calc(calc(calc($toggle-h / 1.2) - calc($toggle-p / $toggle-circle-p)));
+                }
+            }
+
+            &:hover .circle {
+                cursor: pointer;
+                left: calc(100% - ($toggle-p / calc($toggle-circle-p * 2)));
+                transform: translate(-100%, -50%);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+
+}
