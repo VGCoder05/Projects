@@ -1,0 +1,197 @@
+$icon-color: #34495E;
+$icon-color2: #34495E;;
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    // Glassmorphism style
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
+    padding: .5rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 99;
+
+    .top_bar {
+        padding-top: .5rem;
+        width: 100%;
+
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .logo {
+
+            img {
+                width: 2rem;
+                height: 2rem;
+                object-fit: cover;
+            }
+        }
+
+        .search-bar {
+            padding: 0.2rem .5rem;
+            width: 70%;
+
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            border: 1px solid;
+            border-radius: 1rem;
+
+            input {
+                width: 100%;
+
+                font-size: .8rem;
+                outline: none;
+                border: none;
+
+                background: transparent;
+            }
+
+            .search-icon {
+                font-size: 1.2rem;
+            }
+
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+
+            .bag-icon,
+            .profile-icon {
+                color: $icon-color !important;
+            }
+
+            .order-icon {
+                width: 1.5rem;
+                height: 1.5rem; // Ensure the height matches the width for a square icon
+                background: $icon-color; // This will be the color of the icon
+                mask-image: url("icons/order.svg");
+                mask-repeat: no-repeat; // Prevent the mask from repeating
+                mask-position: center; // Center the mask
+                mask-size: contain; // Ensure the mask fits within the element
+            }
+
+            .cart-icon {
+                position: relative;
+
+                .cart-count {
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    background: $Primary;
+                    color: white;
+                    font-size: 0.8rem;
+                    padding: 0.2rem 0.5rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+    }
+
+    hr {
+        margin: .5rem 0;
+        width: 100%;
+    }
+
+    .lower_bar {
+        padding: .2rem;
+        width: 100%;
+
+
+        .links {
+            padding: 0 2rem;
+            // width: 100%;
+
+            display: flex;
+            align-content: center;
+            gap: 2.5rem;
+
+            a {
+                // Link style with padding as width
+                @include Link(0);
+                @include underline-animation($icon-color2);
+                font-family: $Monospace-font !important;
+                background: #000;
+            }
+
+        }
+    }
+
+}
+
+.navbar.vibrant-gradient {
+    background: linear-gradient(270deg, lighten($Primary, 20px), lighten($Secondary, 20%)) !important; // Lighten the gradient
+    color: $icon-color !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
+    .top_bar {
+        .logo img {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        .search-bar {
+            border-color: $icon-color !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+
+            input {
+                color: $icon-color !important;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.7) !important;
+                }
+            }
+
+            .search-icon {
+                color: $icon-color !important;
+            }
+        }
+
+        .icons {
+
+            .cart-count {
+                background: white !important;
+                color: $Primary !important;
+            }
+        }
+    }
+
+    hr {
+        border-color: $icon-color !important;
+    }
+
+    .lower_bar {
+        .links {
+            a {
+                color: $icon-color !important;
+
+                &:hover {
+                    color: $icon-color2 !important;
+                }
+
+                &::after {
+                    background: $icon-color2; // White underline
+                }
+            }
+        }
+    }
+}

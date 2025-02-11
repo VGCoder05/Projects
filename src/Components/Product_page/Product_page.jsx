@@ -4,7 +4,7 @@ import Product_detail from './Product_detail/Product_detail';
 import Features from './Feature/Features';
 import Options from './Options/Options';
 import About_Product from './About_Product/About_Product';
-import './Product_page.css';
+// import './Product_page.css';
 
 const Product_page = () => {
     return (

@@ -39,10 +39,10 @@ body {
     color: $text-color;
 
     &::-webkit-scrollbar {
-            width: 1rem;
+            width: .5rem;
     
-            @media (min-width: 1440px) {
-                width: 2rem;
+            @media (min-width: 1500px) {
+                width: 1.5rem;
     
             }
         }

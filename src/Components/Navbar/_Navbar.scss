@@ -1,0 +1,159 @@
+$icon-color: #34495E;
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+
+    .top_bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 0;
+
+        .logo img {
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: cover;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            border: 1px solid $icon-color;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 0.2rem 0.8rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+            input {
+                width: 100%;
+                font-size: 1rem;
+                border: none;
+                outline: none;
+                background: transparent;
+            }
+
+            .search-icon {
+                position: absolute;
+                right: 10px;
+                font-size: 1.2rem;
+                color: $icon-color;
+                cursor: pointer;
+            }
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+
+            .order-icon {
+                width: 1.5rem;
+                height: 1.5rem; // Ensure the height matches the width for a square icon
+                background: $icon-color; // This will be the color of the icon
+                mask-image: url("icons/order.svg");
+                mask-repeat: no-repeat; // Prevent the mask from repeating
+                mask-position: center; // Center the mask
+                mask-size: contain; // Ensure the mask fits within the element
+            }
+
+            .bag-icon,
+            .profile-icon {
+                color: $icon-color !important;
+            }
+
+            .cart-icon {
+                position: relative;
+
+                .cart-count {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translate(50%, -50%);
+
+                    padding: 0.3rem;
+                    min-width: 20px;
+                    height: 20px;
+
+                    background: red;
+                    color: white;
+                    font-size: 0.8rem;
+                    border-radius: 50%;
+                    font-weight: bold;
+
+                    // to cecnter the text
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    hr {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    .lower_bar {
+        width: 100%;
+        padding: 0.2rem;
+
+        .links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 1rem;
+
+            a {
+                // text-decoration: none;
+                // font-weight: bold;
+                // transition: all 0.3s ease;
+                @include Link(0.5rem);
+                @include underline-animation($icon-color);
+                color: $icon-color;
+                font-family: $Monospace-font !important;
+            }
+
+            .dropdown {
+                position: relative;
+                display: block;
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background: white;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    z-index: 100;
+                    min-width: 150px;
+
+                    a {
+                        display: block;
+                        padding: 0.3rem 0;
+                    }
+                }
+
+                &:hover .dropdown-content {
+                    display: block;
+                }
+            }
+        }
+    }
+}

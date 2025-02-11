@@ -1,4 +1,4 @@
-@import "../style/Color_pallet";
+// @import "../style/Color_pallet";
 
 // Spacing
 $spacing-xs: 8px;
@@ -88,7 +88,7 @@ p {
 // Link style with padding as width
 @mixin Link($p) {
     position: relative;
-    padding-bottom: $p;
+    margin-bottom: $p;
 
     text-decoration: none;
     color: $text-color;
@@ -98,7 +98,7 @@ p {
     letter-spacing: $letter-spacing-default;
 }
 
-%underline-animation {
+@mixin underline-animation($color: red){
     &::before {
         content: "";
         position: absolute;
@@ -108,7 +108,7 @@ p {
 
         width: 0;
         height: 2px;
-        background: red;
+        background: $color;
         transition: width .3s ease-in-out;
     }
 
