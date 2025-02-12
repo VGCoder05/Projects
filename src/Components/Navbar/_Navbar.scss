@@ -1,11 +1,14 @@
 $icon-color: #34495E;
 
+@import "./Sidebar";
+
 .navbar {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.7);
+
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -16,44 +19,63 @@ $icon-color: #34495E;
     z-index: 99;
 
     .top_bar {
+        padding: 0.5rem 0;
         width: 100%;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
-        padding: 0.5rem 0;
 
-        .logo img {
-            width: 2.5rem;
-            height: 2.5rem;
-            object-fit: cover;
-        }
-
-        .search-bar {
-            position: relative;
-            width: 50%;
+        .left {
             display: flex;
             align-items: center;
+            gap: .25rem;
+
+            .toggle-menu {}
+
+            .logo img {
+                width: 2.5rem;
+                height: 2.5rem;
+                object-fit: cover;
+            }
+        }
+
+
+        .mobile-search-bar {
+            width: 50%;
             border: 1px solid $icon-color;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.4);
-            padding: 0.2rem 0.8rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-            input {
-                width: 100%;
-                font-size: 1rem;
-                border: none;
-                outline: none;
-                background: transparent;
-            }
+            // To bound all elements in the div
+            display: flex;
 
-            .search-icon {
-                position: absolute;
-                right: 10px;
-                font-size: 1.2rem;
-                color: $icon-color;
-                cursor: pointer;
+            .search-bar {
+                padding: 0.2rem 0.8rem;
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1px;
+
+                input {
+                    width: 100%;
+                    font-size: 1rem;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                }
+
+                .search-icon {
+                    width: max-content;
+
+                    font-size: 1.2rem;
+                    color: $icon-color;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -83,13 +105,13 @@ $icon-color: #34495E;
 
                 .cart-count {
                     position: absolute;
-                    top: 0;
-                    right: 0;
+                    top: 2px;
+                    right: 2px;
                     transform: translate(50%, -50%);
 
                     padding: 0.3rem;
-                    min-width: 20px;
-                    height: 20px;
+                    min-width: 10px;
+                    height: 10px;
 
                     background: red;
                     color: white;
@@ -156,4 +178,26 @@ $icon-color: #34495E;
             }
         }
     }
+
+
+    @media (max-width:740px) {
+
+        .top_bar {
+
+            flex-wrap: wrap;
+
+            .mobile-search-bar {
+                width: 100%;
+                order: 3;
+                flex-shrink: 0;
+            }
+
+        }
+
+        hr,
+        .lower_bar {
+            display: none;
+        }
+    }
+
 }

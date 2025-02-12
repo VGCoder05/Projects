@@ -3,25 +3,41 @@ import { Routes, Route, NavLink } from "react-router";
 import { IoIosSearch } from "react-icons/io";
 import { IoBagHandleSharp } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
+import { IoMenuOutline } from "react-icons/io5";
+import Sidebar from './Sidebar';
+import Navbar_Links from './Navbar_Links';
+
 // import './Navbar.css';
 
 const Navbar = () => {
     const [text, setText] = useState("");
-    const [cartCount, setCartCount] = useState(3); // Example cart count
+    const [cartCount, setCartCount] = useState(3); // cart count
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to control sidebar visibility
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
 
     return (
         <>
             <div className='navbar vibrant-gradient'>
                 <div className="top_bar">
-                    <NavLink to="/E-Com/">
-                        <div className="logo">
-                            <img src="img/logo/logo.svg" alt="logo.svg" />
-                        </div>
-                    </NavLink>
 
-                    <div className="search-bar">
-                        <input type="text" onChange={(e) => setText(e.target.value)} value={text} />
-                        <IoIosSearch className="search-icon" />
+                    <div className="left">
+                        <IoMenuOutline className='toggle-menu' onClick={toggleSidebar} />
+
+                        <NavLink to="/E-Com/">
+                            <div className="logo">
+                                <img src="img/logo/logo.svg" alt="logo.svg" />
+                            </div>
+                        </NavLink>
+                    </div>
+
+                    <div className="mobile-search-bar">
+                        <div className="search-bar">
+                            <input type="text" onChange={(e) => setText(e.target.value)} value={text} />
+                            <IoIosSearch className="search-icon" />
+                        </div>
                     </div>
 
                     <div className="icons">
@@ -48,24 +64,11 @@ const Navbar = () => {
 
                 <div className="lower_bar">
                     <div className="links">
-                        <NavLink to="/E-Com/">Home</NavLink>
-                        <NavLink to="/E-Com/Categories">Categories</NavLink>
-                        {/* <div className="dropdown">
-                             <div className="dropdown-content">
-                                <NavLink to="/E-Com/Smartphones">Smartphones</NavLink>
-                                <NavLink to="/E-Com/Laptops">Laptops</NavLink>
-                                <NavLink to="/E-Com/Accessories">Accessories</NavLink>
-                                <NavLink to="/E-Com/Home-Appliances">Home Appliances</NavLink>
-                            </div> 
-                        </div>
-                            */}
-                        <NavLink to="/E-Com/Deals">Deals</NavLink>
-                        <NavLink to="/E-Com/Brands">Brands</NavLink>
-                        <NavLink to="/E-Com/Contact">Contact</NavLink>
+                        <Navbar_Links />                        
                     </div>
                 </div>
 
-
+                <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
 
             </div>
 
